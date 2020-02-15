@@ -27,3 +27,4 @@
 #!/bin/bash
 from .nasbench_keras import build_keras_model, build_module
 from .model_spec import ModelSpec
+from .generate_graphs import generate_graphs

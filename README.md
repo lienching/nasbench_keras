@@ -1,4 +1,4 @@
-# NAS-Bench 101 to Tensorflow 2.0 (tf.keras) converter
+# NAS-Bench 101 to Tensorflow 2.0 (tf.keras) converter v0.2
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/evgps/nasbench_keras)
 
 The small but powerful tool that converts models from **NAS-Bench 101** [code](https://github.com/google-research/nasbench) [paper](https://arxiv.org/abs/1902.09635) into real tf.keras models
@@ -11,6 +11,8 @@ Can be used for:
   - Latency measurements on devices with TFLite Converter
   - ...
 
+### New!
+- Add ```generate_graphs``` function!
 
 ### Installation
 Use PyPi
@@ -29,6 +31,13 @@ $ pip3 install -e .
 To test the tool you can:
   - Download or generate json with all model graphs for original NAS-Bench 101 cells size of 7 or less: [GDrive](https://drive.google.com/open?id=1yClNzQ8DCGW-iYwroA7HWKUrqTeosTev)
   
+  or generate:
+```python
+from nasbench_keras import generate_graphs
+generate_graphs(output_file="generated_graphs1.json", max_vertices=7, num_ops=3, max_edges=9, verify_isomorphism=True)
+```
+- Create module:
+
 ```python
 import tensorflow as tf
 import json
@@ -63,6 +72,10 @@ outputs = build_module(spec=spec, inputs=inputs, channels=128, is_training=True)
 module = tf.keras.Model(inputs=inputs, outputs=outputs)
 module.summary()
 
+```
+- And stacked model with downsampling between blocks
+
+```python
 # Create whole network with same config
 features = tf.keras.layers.Input((3,224,224), 1)
 net_outputs = build_keras_model(spec, features, labels, config)
