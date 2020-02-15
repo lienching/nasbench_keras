@@ -1,7 +1,7 @@
 # NAS-Bench 101 to Tensorflow 2.0 (tf.keras) converter
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/evgps/nasbench_keras)
 
-The small but powerful tool that converts model from **NAS-Bench 101**[code](https://github.com/google-research/nasbench) [paper](https://arxiv.org/abs/1902.09635)json to real tf.keras model
+The small but powerful tool that converts models from **NAS-Bench 101** [code](https://github.com/google-research/nasbench) [paper](https://arxiv.org/abs/1902.09635) into real tf.keras models
 - **Completely standalone (check requirements). Don't need NAS-Bench to be installed!**
 - **Require Tensorflow 2.0 or higher**
 
